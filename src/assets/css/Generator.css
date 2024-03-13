@@ -1,0 +1,26 @@
+
+#clasepadre{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.clasehijo{
+    border: 1px solid black;
+    display: flex;
+}
+
+
+.formulario{
+    display: flex;
+}
+
+.nombre{
+    border: 1px solid blue;
+}
+
+.curp{
+    text-align: center;
+    width: 50%;
+    background-color: darkgray;
+}
