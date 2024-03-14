@@ -97,6 +97,7 @@ const obtenerPrimeraVocal = (cadena) => {
       <div className="clasehijo">
       <form onSubmit={handleSubmit} className="formulario">
         <div className="formulario-div">
+        <div className="title">GENERADOR DE CURP</div>
         <div className="nombre">
           <label>
             Nombre:
@@ -178,20 +179,22 @@ const obtenerPrimeraVocal = (cadena) => {
         </label>
         </div>
         <div className="captcha">
-        <label>Captcha: {captcha}</label>
-        </div>
-        <div className="boton">
-            <input
-              type="text"
-              value={captchaInput}
-              onChange={(e) => setCaptchaInput(e.target.value)}
-              placeholder="Ingresa el captcha"
-              required
-            />
-            {!captchaValido && (
-              <span className="error">Captcha incorrecto</span>
-            )}
+          <div className="captchalabel">
+           <label>Captcha: {captcha}</label>
           </div>
+          <div className="boton">
+              <input
+                type="text"
+                value={captchaInput}
+                onChange={(e) => setCaptchaInput(e.target.value)}
+                placeholder="Ingresa el captcha"
+                required
+              />
+              {!captchaValido && (
+                <span className="error">Captcha incorrecto</span>
+              )}
+          </div>
+        </div>
         <button type="submit">Generar CURP</button>
         </div>
       </form>
@@ -199,8 +202,10 @@ const obtenerPrimeraVocal = (cadena) => {
 
       {curpGenerada && (
         <div class="curp">
-          <h3>CURP Generada:</h3>
-          <p>{curpGenerada}</p>
+          <div className="infoCurp">
+            <h3>CURP Generada:</h3>
+            <p>{curpGenerada}</p>
+          </div>
         </div>
       )}
       </div>
