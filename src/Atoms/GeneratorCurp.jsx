@@ -70,9 +70,9 @@ function GeneratorCurp() {
 
   
 const obtenerPrimeraVocal = (cadena) => {
-  const vocales = cadena.match(/[aeiouAEIOU]/g);
+  const vocales = cadena.match(/[aeiouAEIOUáéíóúÁÉÍÓÚ]/g);
   if (vocales && vocales.length > 0) {
-    if ("aeiouAEIOU".includes(cadena[0])) {
+    if ("aeiouAEIOUáéíóúÁÉÍÓÚ".includes(cadena[0])) {
       return vocales[1] ? vocales[1].toUpperCase() : '';
     } else {
       return vocales[0].toUpperCase();
@@ -83,7 +83,7 @@ const obtenerPrimeraVocal = (cadena) => {
   
   const obtenerSiguienteConsonante = (cadena) => {
     const primeraLetra = cadena.charAt(0).toUpperCase();
-    const consonantes = cadena.substring(1).match(/[^aeiouAEIOU]/g);
+    const consonantes = cadena.substring(1).match(/[^aeiouAEIOUáéíóúÁÉÍÓÚ]/g);
     if (consonantes && consonantes.length > 0) {
         return consonantes[0].toUpperCase();
     } else {
