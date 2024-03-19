@@ -36,6 +36,14 @@ function GeneratorCurp() {
       setCaptchaValido(false);
       return;
     }
+    if (!validarCampos()) {
+      alert("Por favor, asegúrese de que los campos no contengan números ni caracteres extraños.");
+      return;
+    }
+    if (!validarFecha()) {
+      alert("La fecha de nacimiento debe estar entre 1960 y marzo 20 de 2024.");
+      return;
+    }
     // Si el captcha es correcto, generar la CURP
     const curp = generarCurp();
     setCurpGenerada(curp);
@@ -66,6 +74,30 @@ function GeneratorCurp() {
     const curp = `${primerLetraApellidoPaterno}${primerVocalApellidoPaterno}${primerLetraApellidoMaterno}${primerLetraNombre}${ano.slice(-2)}${mes}${dia}${sexoCurp}CS${siguienteConsonanteApellidoPaterno}${siguienteConsonanteApellidoMaterno}${siguienteConsonanteNombre}XX`;
     return curp;
   };
+
+  
+const validarCampos = () => {
+  const campos = [nombre, segundoNombre, primerApellido, segundoApellido];
+  const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/; // Expresión regular para letras y espacios
+
+  for (let campo of campos) {
+    if (!campo.match(regex)) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+
+const validarFecha = () => {
+  const [ano, mes, dia] = fechaNacimiento.split("-");
+  const fechaSeleccionada = new Date(parseInt(ano), parseInt(mes) - 1, parseInt(dia));
+  const fechaInicio = new Date(1960, 0, 1);
+  const fechaFin = new Date(2024, 2, 20); // Marzo 31, 2024
+
+  return fechaSeleccionada >= fechaInicio && fechaSeleccionada <= fechaFin;
+};
 
 
   
